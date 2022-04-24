@@ -13,7 +13,7 @@ class MemberServiceTest {
     MemberService memberService;
     MemoryMemberRepository memberRepository =  new MemoryMemberRepository();
 
-    @BeforeEach
+    @BeforeEach // 각 테스트 실행 전에 호출된다. 테스트가 서로 영향이 ㅇ벗도록 항상 새로운 객체를 생성하고 의존관계도 세로 맺어준다.
     public void beforeEach(){
         memberRepository = new MemoryMemberRepository();
         memberService = new MemberService(memberRepository);
@@ -45,7 +45,7 @@ class MemberServiceTest {
         member2.setName("spring");
         //when
         memberService.join(member1);
-        IllegalStateException e = assertThrows(IllegalStateException.class, () -> memberService.join(member2));
+        IllegalStateException e = assertThrows(IllegalStateException.class, () -> memberService.join(member2)); // 예외가 발생해야 한다.
         assertThat(e.getMessage()).isEqualTo("이미 존재하는 회원입니다."); //exception 날라오는 message가 같다면
         /*
         try {
