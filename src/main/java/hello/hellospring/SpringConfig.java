@@ -13,7 +13,7 @@ public class SpringConfig {
     @Autowired
     public SpringConfig(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
-    }
+    } // 스프링 데잍머 JPA
 
     /*
         private EntityManager em;
@@ -38,10 +38,10 @@ public class SpringConfig {
 /*
     @Bean
     public MemberRepository memberRepository(){
-        //return new MemoryMemberRepository();
-        //return new JdbcMemberRepository(dataSource);
-        //return  new JdbcTempletMemberRepository(dataSource);
-        //return  new JpaMemberRepository(em);
+        //return new MemoryMemberRepository(); -> DB를 사용하지 않을때
+        //return new JdbcMemberRepository(dataSource); -> 순수JDBC
+        //return  new JdbcTempletMemberRepository(dataSource); ->스프링 JDBCtemplate
+        //return  new JpaMemberRepository(em); ->JPA
     }
 
  */
